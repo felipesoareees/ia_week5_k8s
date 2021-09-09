@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: deployment-ubuntu
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      os: ubuntu
+  template:
+    metadata:
+      name: pod-ubuntu
+      labels:
+        os: ubuntu
+    spec:
+      containers:
+      - name: container-ubuntu
+        image: ubuntu:20.04
+#        command: ['sh', '-c', 'echo The app is running! && sleep 3600']
