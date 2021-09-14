@@ -16,4 +16,4 @@ spec:
       containers:
       - name: container-ubuntu
         image: ubuntu:20.04
-#        command: ['sh', '-c', 'echo The app is running! && sleep 3600']
+        #        command: ['sh', '-c', 'echo The app is running! && sleep 3600']

@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: resource-deployment
+  labels:
+    app: resource-app
+    type: resource
+spec:
+  template:
+     metadata:
+       name: resource-pod
+       labels:
+         app: resource-app
+         type: resource
+     spec:
+       containers:
+         - name: frontend-container
+           image: nginx
+           ports:
+           - containerPort: 80
+             protocol: TCP
+           resources:
+             limits:
+               memory: 3Mi
+               cpu: "3m"
+             requests:
+               memory: 2Mi
+               cpu: "1m"
+  selector:
+     matchLabels:
+       type: resource
+  replicas: 2
